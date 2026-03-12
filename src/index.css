@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Reset e base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  font-size: 18px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f5f9f7;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+/* Garantir touch targets mínimos de 48px */
+button, 
+a, 
+input[type="submit"],
+input[type="button"],
+[role="button"] {
+  min-height: 48px;
+  min-width: 48px;
+}
+
+/* Animação de pulse para botão de voz */
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 15px rgba(239, 68, 68, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+  }
+}
+
+.animate-pulse {
+  animation: pulse-ring 1.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+}
+
+/* Esconder scrollbar mas manter funcionalidade */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Focus visible para acessibilidade */
+:focus-visible {
+  outline: 3px solid #087830;
+  outline-offset: 2px;
+}
+
+/* Alto contraste - sobrescrever quando ativo */
+.high-contrast {
+  --bg-primary: #000000;
+  --bg-secondary: #1a1a1a;
+  --text-primary: #ffffff;
+  --text-secondary: #e0e0e0;
+  --accent: #ffff00;
+}
+
+/* Transições suaves entre telas */
+.screen-enter {
+  opacity: 0;
+  transform: translateX(20px);
+}
+.screen-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 200ms ease-out, transform 200ms ease-out;
+}
+
+/* Botão de escala ao clicar */
+.active\:scale-98:active {
+  transform: scale(0.98);
+}
+
+.active\:scale-95:active {
+  transform: scale(0.95);
+}
+
+/* Safe area para dispositivos com notch */
+@supports (padding: max(0px)) {
+  body {
+    padding-left: max(0px, env(safe-area-inset-left));
+    padding-right: max(0px, env(safe-area-inset-right));
+  }
+  
+  .pb-safe {
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  }
+}
+
+/* Melhorar legibilidade */
+p, li, span {
+  line-height: 1.6;
+}
+
+/* Placeholders mais visíveis */
+::placeholder {
+  color: #6b7280;
+  opacity: 1;
+}
+
+/* Selection color */
+::selection {
+  background-color: #087830;
+  color: white;
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="theme-color" content="#087830" />
+    <meta name="description" content="VidaSUS - Seu assistente de saúde pública. Encontre onde se tratar, entenda suas receitas e cuide da saúde da sua família." />
+    <title>VidaSUS - Assistente de Saúde Pública</title>
+  </head>
+  <body>
+    <!-- VLibras Accessibility Widget -->
+    <div vw class="enabled">
+      <div vw-access-button class="active"></div>
+      <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+      </div>
+    </div>
+    
+    <div id="root"></div>
+    
+    <!-- VLibras Widget Script -->
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+      new window.VLibras.Widget({
+        rootPath: 'https://vlibras.gov.br/app/',
+        avatar: 'icaro',
+        opacity: 0.95,
+        position: 'R'
+      });
+    </script>
+    
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
