@@ -122,7 +122,7 @@ const unidades = await fetch('/api/cnes?codigo_municipio=355030');
 ### ❌ NÃO FAÇA ISSO
 ```javascript
 // ❌ Nunca coloque credenciais no frontend
-const API_KEY = "sk-proj-123456";
+const API_KEY = "CHAVE_API_AQUI";
 fetch(`https://api.com/endpoint?key=${API_KEY}`);
 ```
 
@@ -202,7 +202,7 @@ git commit -m "feat: adiciona histórico médico com 5 seções"
 git push
 
 # 5. Verificar se algo sensível vazou
-git log -p | grep -i "sk-proj\|client_secret"  # Deve estar vazio
+git log -p | grep -i "openai_api_key\|client_secret\|authorization: bearer"  # Deve estar vazio
 ```
 
 ---

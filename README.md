@@ -63,7 +63,7 @@ npm run dev
 `.env` file (do not commit):
 
 ```env
-VITE_OPENAI_API_KEY=sk-proj-your-key-here
+VITE_OPENAI_API_KEY=OPENAI_API_KEY_AQUI
 ```
 
 ## Security
