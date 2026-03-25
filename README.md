@@ -63,8 +63,15 @@ npm run dev
 `.env` file (do not commit):
 
 ```env
-VITE_OPENAI_API_KEY=OPENAI_API_KEY_AQUI
+OPENAI_API_KEY=OPENAI_API_KEY_AQUI
+# OPENAI_MODEL=gpt-4o-mini
 ```
+
+## AI Security Flow
+
+- The OpenAI key is read only by `server.js` (backend).
+- The React app calls `/api/chat` and never receives the raw API key.
+- In development, Vite proxies `/api/*` to `http://localhost:3001`.
 
 ## Security
 

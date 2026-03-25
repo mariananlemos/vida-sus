@@ -1141,21 +1141,16 @@ const RECOMENDACAO_MAP = {
 };
 
 function useOpenAI() {
-  const apiKey = import.meta.env.VITE_OPENAI_API_KEY;
-  const isAvailable = !!apiKey && apiKey.length > 10;
+  const isAvailable = true;
 
   const chat = useCallback(async (history) => {
-    const response = await fetch('https://api.openai.com/v1/chat/completions', {
+    const response = await fetch('/api/chat', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
-        model: 'gpt-4o-mini',
-        messages: [{ role: 'system', content: SYSTEM_PROMPT_TRIAGEM }, ...history],
-        max_tokens: 350,
-        temperature: 0.6,
+        history: [{ role: 'system', content: SYSTEM_PROMPT_TRIAGEM }, ...history],
       }),
     });
     if (!response.ok) {
@@ -1163,8 +1158,8 @@ function useOpenAI() {
       throw new Error(err.error?.message || `Erro ${response.status}`);
     }
     const data = await response.json();
-    return data.choices[0].message.content;
-  }, [apiKey]);
+    return data.content;
+  }, []);
 
   const parseRecommendation = useCallback((text) => {
     const match = text.match(/\[REC:(UBS|UPA|EMERGENCIA|TELEMEDICINA)\]/i);
