@@ -63,7 +63,7 @@ npm run dev
 `.env` file (do not commit):
 
 ```env
-OPENAI_API_KEY=OPENAI_API_KEY_AQUI
+OPENAI_API_KEY= (here)
 # OPENAI_MODEL=gpt-4o-mini
 ```
 
